@@ -1,0 +1,99 @@
+:root {
+    --primary: rgb(254, 59, 176);
+    --secondary: yellow;
+    --third: rgb(120, 240, 240);
+    --dark: black;
+    --lightdark: lightgrey;
+    --light: white;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--lightdark);
+    user-select: none;
+}
+
+.outercircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    box-shadow: 8px 0 12px var(--primary);
+    border: solid 6px var(--primary);
+    background-color: var(--dark);
+}
+
+.innercircle {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 2px var(--primary);
+    background-color: var(--primary);
+
+}
+
+.hour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 4px;
+    height: 70px;
+    bottom: 50%;
+    border: solid 1px var(--primary);
+    background-color: var(--primary);
+}
+
+.min {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 3px;
+    height: 120px;
+    bottom: 50%;
+    border: solid 1px var(--secondary);
+    background-color: var(--secondary);
+}
+
+.sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    bottom: 50%;
+    border: solid 1px var(--third);
+    background-color: var(--third);
+}
+
+.hour, .min,
+.sec {
+    position:absolute;
+    bottom: 50%;
+    transform-origin: bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
