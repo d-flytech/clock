@@ -5,12 +5,14 @@
     --dark: black;
     --lightdark: lightgrey;
     --light: white;
+    --bluez: rgb(98, 194, 253);
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     height: 100vh;
     margin: 0;
     background-color: var(--lightdark);
@@ -21,13 +23,37 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
     width: 360px;
     height: 360px;
     border-radius: 50%;
     box-shadow: 8px 0 12px var(--primary);
     border: solid 6px var(--primary);
     background-color: var(--dark);
+    transition: background-color linear 4s, border 4s, box-shadow 4s;
+}
+
+.outercircle::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background-image: url(images/plane.jpeg);
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 3s linear;
+}
+
+.outercircle:hover {
+    box-shadow: 8px 0 12px var(--bluez);
+    border: solid 6px var(--bluez);
+    background-color: var(--light);
+    cursor: pointer;
+}
+
+.outercircle:hover::before {
+    opacity: 1;
 }
 
 .innercircle {
@@ -40,7 +66,6 @@ body {
     border-radius: 50%;
     border: solid 2px var(--primary);
     background-color: var(--primary);
-
 }
 
 .hour {
@@ -79,21 +104,18 @@ body {
     background-color: var(--third);
 }
 
-.hour, .min,
+.hour,
+.min,
 .sec {
-    position:absolute;
+    position: absolute;
     bottom: 50%;
     transform-origin: bottom;
+    transition: background-color linear 1s, border linear 1s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.outercircle:hover .hour,
+.outercircle:hover .min,
+.outercircle:hover .sec {
+    background-color: var(--bluez);
+    border: solid 1px var(--bluez);
+}
